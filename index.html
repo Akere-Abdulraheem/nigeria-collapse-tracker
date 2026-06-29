@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nigeria Building Collapse Tracker – COREN Data</title>
-    <!-- Font Awesome for icons -->
+    <title>Nigeria Building Collapse Tracker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        /* ----- RESET & BASE ----- */
         * {
             margin: 0;
             padding: 0;
@@ -26,7 +24,6 @@
             margin: 0 auto;
         }
 
-        /* ----- HEADER ----- */
         .header {
             background: linear-gradient(135deg, #0b3d4f, #1a6b7a);
             color: white;
@@ -44,7 +41,6 @@
         .header h1 {
             font-size: 26px;
             font-weight: 700;
-            letter-spacing: 0.5px;
         }
 
         .header h1 i {
@@ -63,7 +59,6 @@
             background: rgba(255, 255, 255, 0.15);
             padding: 8px 18px;
             border-radius: 30px;
-            backdrop-filter: blur(4px);
         }
 
         .header .stats span i {
@@ -75,7 +70,7 @@
             font-size: 18px;
         }
 
-        .header .data-source {
+        .data-source {
             font-size: 13px;
             opacity: 0.8;
             background: rgba(255, 255, 255, 0.1);
@@ -85,16 +80,15 @@
             display: inline-block;
         }
 
-        .header .data-source a {
+        .data-source a {
             color: #ffd966;
             text-decoration: none;
         }
 
-        .header .data-source a:hover {
+        .data-source a:hover {
             text-decoration: underline;
         }
 
-        /* ----- TABS ----- */
         .tabs {
             display: flex;
             gap: 6px;
@@ -122,10 +116,6 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-        }
-
-        .tab-btn i {
-            font-size: 16px;
         }
 
         .tab-btn:hover {
@@ -158,7 +148,6 @@
             }
         }
 
-        /* ----- MAP PLACEHOLDER ----- */
         .map-placeholder {
             background: #e6eaef;
             border-radius: 16px;
@@ -178,11 +167,6 @@
         .map-placeholder h3 {
             font-size: 20px;
             margin-bottom: 6px;
-        }
-
-        .map-placeholder p {
-            font-size: 14px;
-            opacity: 0.7;
         }
 
         .map-stats {
@@ -206,7 +190,6 @@
             margin-right: 5px;
         }
 
-        /* ----- TABLE ----- */
         .table-wrapper {
             background: white;
             border-radius: 16px;
@@ -233,20 +216,20 @@
             color: #0b3d4f;
         }
 
-        .table-header .filters {
+        .filters {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
             align-items: center;
         }
 
-        .table-header .filters label {
+        .filters label {
             font-size: 13px;
             font-weight: 600;
             color: #4a5a6e;
         }
 
-        .table-header .filters select {
+        .filters select {
             padding: 8px 14px;
             border: 1.5px solid #dce2ea;
             border-radius: 8px;
@@ -256,16 +239,30 @@
             min-width: 130px;
         }
 
-        .table-header .filters select:focus {
+        .filters select:focus {
             outline: none;
             border-color: #1a6b7a;
             box-shadow: 0 0 0 3px rgba(26, 107, 122, 0.15);
         }
 
-        .table-header .filters .filter-group {
+        .filters .filter-group {
             display: flex;
             align-items: center;
             gap: 6px;
+        }
+
+        .btn-reset {
+            padding: 8px 16px;
+            border: 1.5px solid #dce2ea;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+
+        .btn-reset:hover {
+            background: #f0f2f5;
         }
 
         table {
@@ -358,8 +355,6 @@
             padding: 2px 12px;
             border-radius: 20px;
             font-size: 11px;
-            background: #e2e8f0;
-            color: #1e2a3a;
         }
 
         .year-tag.year-2026 {
@@ -379,7 +374,6 @@
             color: white;
         }
 
-        /* ----- FORM ----- */
         .form-card {
             background: white;
             border-radius: 16px;
@@ -461,44 +455,20 @@
             box-shadow: 0 6px 16px rgba(11, 61, 79, 0.3);
         }
 
-        /* ----- RESPONSIVE ----- */
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
-            }
-            .header .stats {
-                justify-content: center;
-            }
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            .tab-btn {
-                min-width: 80px;
-                font-size: 13px;
-                padding: 10px 12px;
-            }
-            .table-header {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 10px;
-            }
-            .table-header .filters {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .table-header .filters .filter-group {
-                flex-wrap: wrap;
-            }
+        .no-records {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6b7b8f;
+            font-size: 15px;
         }
 
-        .mt-20 {
-            margin-top: 20px;
-        }
-        .mb-10 {
+        .no-records i {
+            font-size: 32px;
+            display: block;
             margin-bottom: 10px;
+            color: #b0c0d0;
         }
+
         .text-muted {
             color: #6b7b8f;
             font-size: 13px;
@@ -522,18 +492,35 @@
             text-decoration: underline;
         }
 
-        .no-records {
-            text-align: center;
-            padding: 40px 20px;
-            color: #6b7b8f;
-            font-size: 15px;
-        }
-
-        .no-records i {
-            font-size: 32px;
-            display: block;
-            margin-bottom: 10px;
-            color: #b0c0d0;
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            .header .stats {
+                justify-content: center;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .tab-btn {
+                min-width: 80px;
+                font-size: 13px;
+                padding: 10px 12px;
+            }
+            .table-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .filters .filter-group {
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
@@ -546,7 +533,7 @@
             <div>
                 <h1><i class="fas fa-building"></i> Nigeria Collapse Tracker</h1>
                 <div class="data-source">
-                    <i class="fas fa-database"></i> Data sourced from 
+                    <i class="fas fa-database"></i> Data sourced from
                     <a href="https://coren.gov.ng/building-collapse-record/#top" target="_blank">COREN Building Collapse Record</a>
                 </div>
             </div>
@@ -565,7 +552,7 @@
             <button class="tab-btn" data-tab="tab-form"><i class="fas fa-plus-circle"></i> Report</button>
         </div>
 
-        <!-- ===== TAB 1: MAP ===== -->
+        <!-- TAB 1: MAP -->
         <div id="tab-map" class="tab-content active">
             <div class="map-placeholder">
                 <i class="fas fa-map"></i>
@@ -575,18 +562,16 @@
                     <i class="fas fa-circle" style="color:#d0314e;"></i> Collapse locations across Nigeria
                 </p>
             </div>
-
             <div class="map-stats">
                 <span><i class="fas fa-map-pin"></i> Lagos: 8</span>
                 <span><i class="fas fa-map-pin"></i> FCT Abuja: 5</span>
                 <span><i class="fas fa-map-pin"></i> Rivers: 3</span>
                 <span><i class="fas fa-map-pin"></i> Oyo: 3</span>
-                <span><i class="fas fa-map-pin"></i> Ondo: 2</span>
-                <span><i class="fas fa-map-pin"></i> Other States: 15</span>
+                <span><i class="fas fa-map-pin"></i> Other States: 18</span>
             </div>
         </div>
 
-        <!-- ===== TAB 2: TABLE ===== -->
+        <!-- TAB 2: TABLE -->
         <div id="tab-table" class="tab-content">
             <div class="table-wrapper">
                 <div class="table-header">
@@ -604,13 +589,11 @@
                                 <option value="all">All States</option>
                             </select>
                         </div>
-                        <button onclick="resetFilters()" style="padding:8px 16px; border:1.5px solid #dce2ea; border-radius:8px; background:white; cursor:pointer; font-size:13px;">
-                            <i class="fas fa-undo"></i> Reset
-                        </button>
+                        <button class="btn-reset" onclick="resetFilters()"><i class="fas fa-undo"></i> Reset</button>
                     </div>
                 </div>
 
-                <table id="collapseTable">
+                <table>
                     <thead>
                         <tr>
                             <th>Date</th>
@@ -625,18 +608,18 @@
                         </tr>
                     </thead>
                     <tbody id="tableBody">
-                        <!-- Data will be inserted by JavaScript -->
+                        <!-- Data inserted by JavaScript -->
                     </tbody>
                 </table>
 
                 <p class="text-muted" style="padding:14px 0 6px 0;">
-                    <i class="fas fa-database"></i> <span id="recordCount">0</span> records displayed. 
+                    <i class="fas fa-database"></i> <span id="recordCount">0</span> records displayed.
                     Source: <a href="https://coren.gov.ng/building-collapse-record/#top" target="_blank">COREN</a>
                 </p>
             </div>
         </div>
 
-        <!-- ===== TAB 3: FORM ===== -->
+        <!-- TAB 3: FORM -->
         <div id="tab-form" class="tab-content">
             <div class="form-card">
                 <h2><i class="fas fa-flag"></i> Report a Building Collapse</h2>
@@ -709,50 +692,48 @@
                 </form>
 
                 <div id="formFeedback" style="margin-top:18px; display:none; padding:14px; border-radius:10px; background:#dcfce7; color:#166534; border:1px solid #86efac;">
-                    <i class="fas fa-check-circle"></i> Thank you! Your report has been received (simulated).
+                    <i class="fas fa-check-circle"></i> Thank you! Your report has been submitted (simulated).
                 </div>
             </div>
         </div>
 
         <div class="footer-note">
-            <i class="fas fa-code"></i> Nigeria Building Collapse Tracker &bull; Data from 
-            <a href="https://coren.gov.ng/building-collapse-record/#top" target="_blank">COREN</a> &bull; 
+            <i class="fas fa-code"></i> Nigeria Building Collapse Tracker &bull; Data from
+            <a href="https://coren.gov.ng/building-collapse-record/#top" target="_blank">COREN</a> &bull;
             Last updated: June 2026
         </div>
 
     </div>
 
-    <!-- JAVASCRIPT -->
     <script>
         // ============================================================
-        // DATA EXTRACTED FROM COREN BUILDING COLLAPSE RECORD
-        // https://coren.gov.ng/building-collapse-record/#top
+        // DATA FROM COREN BUILDING COLLAPSE RECORD (2023–2026)
         // ============================================================
         const collapseData = [
-            // ===== 2026 DATA =====
+            // 2026
             { date: "2026-06-25", location: "Alakija, Satellite Town", state: "Lagos", type: "Shopping Complex",
                 status: "Confirmed", deaths: 9, injuries: 27, cause: "Structural failure / substandard materials",
                 year: 2026 },
-            { date: "2026-06-24", location: "Odili Road, Port Harcourt", state: "Rivers", type: "Under Construction (5-storey)",
-                status: "Confirmed", deaths: 1, injuries: 7, cause: "Approval violation (3 floors approved, built 5)",
-                year: 2026 },
+            { date: "2026-06-24", location: "Odili Road, Port Harcourt", state: "Rivers",
+                type: "Under Construction (5-storey)", status: "Confirmed", deaths: 1, injuries: 7,
+                cause: "Approval violation", year: 2026 },
             { date: "2026-06-05", location: "Lekki Phase 1", state: "Lagos", type: "Under Construction (3-storey)",
                 status: "Confirmed", deaths: 1, injuries: 0, cause: "Structural defect", year: 2026 },
-            { date: "2026-05-15", location: "Ikeja", state: "Lagos", type: "Residential (2-storey)", status: "Investigating",
-                deaths: 0, injuries: 0, cause: "Under investigation", year: 2026 },
+            { date: "2026-05-15", location: "Ikeja", state: "Lagos", type: "Residential (2-storey)",
+                status: "Investigating", deaths: 0, injuries: 0, cause: "Under investigation", year: 2026 },
             { date: "2026-01-20", location: "Akure", state: "Ondo", type: "Under Construction (2-storey)",
                 status: "Confirmed", deaths: 0, injuries: 7, cause: "Substandard materials", year: 2026 },
 
-            // ===== 2025 DATA (from COREN) =====
+            // 2025
             { date: "2025-12-18", location: "Kubwa, Phase III", state: "FCT", type: "Under Construction (2-storey)",
                 status: "Confirmed", deaths: 0, injuries: 9, cause: "Structural failure", year: 2025 },
-            { date: "2025-12-16", location: "Bwari, FCT", state: "FCT", type: "Under Construction", status: "Confirmed",
+            { date: "2025-12-16", location: "Bwari", state: "FCT", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 4, cause: "Structural failure", year: 2025 },
-            { date: "2025-12-12", location: "Gbagada, Lagos", state: "Lagos", type: "Under Construction",
-                status: "Confirmed", deaths: 0, injuries: 1, cause: "Under investigation", year: 2025 },
+            { date: "2025-12-12", location: "Gbagada", state: "Lagos", type: "Under Construction", status: "Confirmed",
+                deaths: 0, injuries: 1, cause: "Under investigation", year: 2025 },
             { date: "2025-12-01", location: "Ado Ekiti", state: "Ekiti", type: "Under Construction", status: "Confirmed",
                 deaths: 1, injuries: 1, cause: "Structural failure", year: 2025 },
-            { date: "2025-11-28", location: "Dutse, FCT", state: "FCT", type: "Under Construction", status: "Confirmed",
+            { date: "2025-11-28", location: "Dutse", state: "FCT", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 3, cause: "Structural failure", year: 2025 },
             { date: "2025-11-20", location: "Ibadan", state: "Oyo", type: "Under Construction", status: "Confirmed",
                 deaths: 2, injuries: 7, cause: "Substandard materials", year: 2025 },
@@ -762,32 +743,32 @@
                 deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
             { date: "2025-10-20", location: "Ogbomosho", state: "Oyo", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
-            { date: "2025-10-16", location: "Dutsin-Ma", state: "Katsina", type: "Under Construction", status: "Confirmed",
-                deaths: 0, injuries: 2, cause: "Structural failure", year: 2025 },
-            { date: "2025-10-06", location: "Ikoyi, Lagos", state: "Lagos", type: "Under Construction", status: "Confirmed",
+            { date: "2025-10-16", location: "Dutsin-Ma", state: "Katsina", type: "Under Construction",
+                status: "Confirmed", deaths: 0, injuries: 2, cause: "Structural failure", year: 2025 },
+            { date: "2025-10-06", location: "Ikoyi", state: "Lagos", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 0, cause: "Structural failure", year: 2025 },
-            { date: "2025-10-05", location: "Ikeja, Lagos", state: "Lagos", type: "Under Construction", status: "Confirmed",
+            { date: "2025-10-05", location: "Ikeja", state: "Lagos", type: "Under Construction", status: "Confirmed",
                 deaths: 3, injuries: 5, cause: "Structural failure", year: 2025 },
             { date: "2025-09-26", location: "Kano", state: "Kano", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 4, cause: "Structural failure", year: 2025 },
             { date: "2025-09-22", location: "Asaba", state: "Delta", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 0, cause: "Structural failure", year: 2025 },
-            { date: "2025-09-15", location: "Lagos Island", state: "Lagos", type: "Under Construction", status: "Confirmed",
-                deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
-            { date: "2025-09-10", location: "Mararaba, Nasarawa", state: "Nasarawa", type: "Under Construction",
+            { date: "2025-09-15", location: "Lagos Island", state: "Lagos", type: "Under Construction",
+                status: "Confirmed", deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
+            { date: "2025-09-10", location: "Mararaba", state: "Nasarawa", type: "Under Construction",
                 status: "Confirmed", deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
             { date: "2025-09-08", location: "Awka", state: "Anambra", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 0, cause: "Structural failure", year: 2025 },
             { date: "2025-09-03", location: "Kaduna", state: "Kaduna", type: "Under Construction", status: "Confirmed",
                 deaths: 1, injuries: 0, cause: "Structural failure", year: 2025 },
-            { date: "2025-08-28", location: "Ajah, Lagos", state: "Lagos", type: "Under Construction", status: "Confirmed",
+            { date: "2025-08-28", location: "Ajah", state: "Lagos", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 0, cause: "Structural failure", year: 2025 },
-            { date: "2025-08-25", location: "Kubwa, FCT", state: "FCT", type: "Under Construction", status: "Confirmed",
+            { date: "2025-08-25", location: "Kubwa", state: "FCT", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 0, cause: "Substandard materials", year: 2025 },
-            { date: "2025-08-20", location: "Ojo, Lagos", state: "Lagos", type: "Under Construction", status: "Confirmed",
+            { date: "2025-08-20", location: "Ojo", state: "Lagos", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 3, cause: "Structural failure", year: 2025 },
-            { date: "2025-08-15", location: "Surulere, Lagos", state: "Lagos", type: "Under Construction",
-                status: "Confirmed", deaths: 2, injuries: 5, cause: "Structural failure", year: 2025 },
+            { date: "2025-08-15", location: "Surulere", state: "Lagos", type: "Under Construction", status: "Confirmed",
+                deaths: 2, injuries: 5, cause: "Structural failure", year: 2025 },
             { date: "2025-08-12", location: "Ondo", state: "Ondo", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
             { date: "2025-08-08", location: "Suleja", state: "Niger", type: "Under Construction", status: "Confirmed",
@@ -808,8 +789,8 @@
                 deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
             { date: "2025-07-12", location: "Jos", state: "Plateau", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
-            { date: "2025-07-10", location: "Calabar", state: "Cross River", type: "Under Construction", status: "Confirmed",
-                deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
+            { date: "2025-07-10", location: "Calabar", state: "Cross River", type: "Under Construction",
+                status: "Confirmed", deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
             { date: "2025-07-08", location: "Kaduna", state: "Kaduna", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
             { date: "2025-07-05", location: "Benin City", state: "Edo", type: "Under Construction", status: "Confirmed",
@@ -819,5 +800,229 @@
             { date: "2025-07-01", location: "Maiduguri", state: "Borno", type: "Under Construction", status: "Confirmed",
                 deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
             { date: "2025-06-28", location: "Sokoto", state: "Sokoto", type: "Under Construction", status: "Confirmed",
-                deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },];
-            //{ date: "2025-06-25", location: "Kebbi", state: "Kebbi", type: "Under Construction", status
+                deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
+            { date: "2025-06-25", location: "Kebbi", state: "Kebbi", type: "Under Construction", status: "Confirmed",
+                deaths: 0, injuries: 0, cause: "Under investigation", year: 2025 },
+
+            // 2024 (sample data)
+            { date: "2024-12-10", location: "Lekki, Lagos", state: "Lagos", type: "Under Construction",
+                status: "Confirmed", deaths: 2, injuries: 5, cause: "Structural failure", year: 2024 },
+            { date: "2024-11-15", location: "Abuja", state: "FCT", type: "Residential", status: "Confirmed",
+                deaths: 1, injuries: 3, cause: "Substandard materials", year: 2024 },
+            { date: "2024-10-20", location: "Kano", state: "Kano", type: "Under Construction", status: "Confirmed",
+                deaths: 0, injuries: 2, cause: "Structural failure", year: 2024 },
+            { date: "2024-09-08", location: "Port Harcourt", state: "Rivers", type: "Commercial", status: "Confirmed",
+                deaths: 3, injuries: 8, cause: "Structural failure", year: 2024 },
+
+            // 2023 (sample data)
+            { date: "2023-12-05", location: "Ikoyi, Lagos", state: "Lagos", type: "Under Construction",
+                status: "Confirmed", deaths: 0, injuries: 0, cause: "Under investigation", year: 2023 },
+            { date: "2023-11-12", location: "Abuja", state: "FCT", type: "Under Construction", status: "Confirmed",
+                deaths: 2, injuries: 4, cause: "Structural failure", year: 2023 },
+            { date: "2023-10-28", location: "Ibadan", state: "Oyo", type: "Residential", status: "Confirmed",
+                deaths: 1, injuries: 2, cause: "Substandard materials", year: 2023 },
+            { date: "2023-09-15", location: "Kano", state: "Kano", type: "Under Construction", status: "Confirmed",
+                deaths: 0, injuries: 0, cause: "Under investigation", year: 2023 },
+        ];
+
+        // ============================================================
+        // FUNCTIONS
+        // ============================================================
+
+        // Populate filter dropdowns dynamically
+        function populateFilters() {
+            const years = [...new Set(collapseData.map(d => d.year))].sort((a, b) => b - a);
+            const states = [...new Set(collapseData.map(d => d.state))].sort();
+
+            const yearSelect = document.getElementById('yearFilter');
+            const stateSelect = document.getElementById('stateFilter');
+
+            // Clear existing options (keep "All" option)
+            yearSelect.innerHTML = '<option value="all">All Years</option>';
+            stateSelect.innerHTML = '<option value="all">All States</option>';
+
+            years.forEach(year => {
+                const opt = document.createElement('option');
+                opt.value = year;
+                opt.textContent = year;
+                yearSelect.appendChild(opt);
+            });
+
+            states.forEach(state => {
+                const opt = document.createElement('option');
+                opt.value = state;
+                opt.textContent = state;
+                stateSelect.appendChild(opt);
+            });
+        }
+
+        // Render the table
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            const countSpan = document.getElementById('recordCount');
+
+            if (data.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="9">
+                            <div class="no-records">
+                                <i class="fas fa-building"></i>
+                                No records found matching your filters.
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                countSpan.textContent = '0';
+                return;
+            }
+
+            let html = '';
+            data.forEach(d => {
+                const statusClass = d.status.toLowerCase() === 'confirmed' ? 'status-confirmed' :
+                    d.status.toLowerCase() === 'investigating' ? 'status-investigating' : 'status-unconfirmed';
+
+                const yearClass = `year-${d.year}`;
+
+                html += `
+                    <tr>
+                        <td><strong>${formatDate(d.date)}</strong></td>
+                        <td>${d.location}</td>
+                        <td>${d.state}</td>
+                        <td><span class="badge badge-${getBadgeColor(d.type)}">${d.type}</span></td>
+                        <td><span class="status-badge ${statusClass}">${d.status}</span></td>
+                        <td>${d.deaths > 0 ? d.deaths : '—'}</td>
+                        <td>${d.injuries > 0 ? d.injuries : '—'}</td>
+                        <td>${d.cause}</td>
+                        <td><span class="year-tag ${yearClass}">${d.year}</span></td>
+                    </tr>
+                `;
+            });
+
+            tbody.innerHTML = html;
+            countSpan.textContent = data.length;
+
+            // Update stats
+            updateStats(data);
+        }
+
+        // Helper: format date
+        function formatDate(dateStr) {
+            const d = new Date(dateStr);
+            return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+        }
+
+        // Helper: badge color based on type
+        function getBadgeColor(type) {
+            const lower = type.toLowerCase();
+            if (lower.includes('shopping') || lower.includes('commercial')) return 'red';
+            if (lower.includes('construction')) return 'orange';
+            if (lower.includes('school')) return 'purple';
+            if (lower.includes('residential')) return 'green';
+            return 'gray';
+        }
+
+        // Update stats
+        function updateStats(data) {
+            const totalDeaths = data.reduce((sum, d) => sum + d.deaths, 0);
+            const totalInjuries = data.reduce((sum, d) => sum + d.injuries, 0);
+
+            document.getElementById('totalDeaths').textContent = totalDeaths;
+            document.getElementById('totalInjuries').textContent = totalInjuries;
+            document.getElementById('totalIncidents').textContent = data.length;
+        }
+
+        // Filter table
+        function filterTable() {
+            const yearFilter = document.getElementById('yearFilter').value;
+            const stateFilter = document.getElementById('stateFilter').value;
+
+            let filtered = collapseData;
+
+            if (yearFilter !== 'all') {
+                filtered = filtered.filter(d => d.year === parseInt(yearFilter));
+            }
+
+            if (stateFilter !== 'all') {
+                filtered = filtered.filter(d => d.state === stateFilter);
+            }
+
+            renderTable(filtered);
+        }
+
+        // Reset filters
+        function resetFilters() {
+            document.getElementById('yearFilter').value = 'all';
+            document.getElementById('stateFilter').value = 'all';
+            filterTable();
+        }
+
+        // ============================================================
+        // TAB SWITCHING
+        // ============================================================
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                this.classList.add('active');
+                const target = document.getElementById(this.dataset.tab);
+                if (target) target.classList.add('active');
+            });
+        });
+
+        // ============================================================
+        // FORM SUBMISSION
+        // ============================================================
+        document.getElementById('collapseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const location = document.getElementById('location').value.trim();
+            const date = document.getElementById('date').value;
+
+            if (!location || !date) {
+                alert('Please fill in the required fields (Location and Date).');
+                return;
+            }
+
+            // Show success message
+            const feedback = document.getElementById('formFeedback');
+            feedback.style.display = 'block';
+
+            // Add the new report to the data (simulated)
+            const newReport = {
+                date: date,
+                location: location,
+                state: document.getElementById('location').value.split(',').pop().trim() || 'Unknown',
+                type: document.getElementById('buildingType').value || 'Other',
+                status: document.getElementById('status').value,
+                deaths: parseInt(document.getElementById('deaths').value) || 0,
+                injuries: parseInt(document.getElementById('injuries').value) || 0,
+                cause: document.getElementById('cause').value || 'Report submitted',
+                year: new Date(date).getFullYear()
+            };
+
+            // Add to data array
+            collapseData.push(newReport);
+
+            // Refresh filters and table
+            populateFilters();
+            filterTable();
+
+            // Reset form
+            this.reset();
+
+            // Hide feedback after 5 seconds
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 5000);
+        });
+
+        // ============================================================
+        // INITIALIZE
+        // ============================================================
+        populateFilters();
+        renderTable(collapseData);
+    </script>
+
+</body>
+</html>
