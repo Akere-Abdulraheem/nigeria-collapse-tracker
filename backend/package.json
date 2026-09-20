@@ -1,0 +1,29 @@
+{
+  "name": "akere",
+  "version": "1.0.0",
+  "description": "Keeping records of building collapse in Nigeria",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "seed": "node seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akere-Abdulraheem/nigeria-collapse-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Akere-Abdulraheem/nigeria-collapse-tracker/issues"
+  },
+  "homepage": "https://github.com/Akere-Abdulraheem/nigeria-collapse-tracker#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.0",
+    "express": "^5.2.1",
+    "mongoose": "^9.10.1"
+  }
+}
